@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mailer</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top" style="background-color: #FFFFFF; margin: 5px">
+  <div class="navbar-brand" href="#">
+    <button id="flip" class="btn btn-default" >
+      <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+    </button>
+  </div>
+    <img alt="Brand" src="http://localhost:3000/assets/zmartmail_logo.png" style="height:40px; padding-left: 25px;">
+    <%= link_to 'New Mail', new_email_path, class: "btn btn-default navbar-btn pull-right" %>
+</nav>
+
+<div>
+  <div id="panel" class="col-md-2" style="border-right: 2px solid #e7e7e7;">
+    <%= render 'list', locals:{list: @emails} %>
+  </div>
+  <div class="col-md-10"><%= yield %></div>
+</div>
+
+
+</body>
+</html>

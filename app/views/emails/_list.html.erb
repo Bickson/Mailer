@@ -1,0 +1,25 @@
+<script> 
+  $(document).ready(function(){
+      $("#flip").click(function(){
+          $("#panel").stop().toggle('slow');
+      });
+  });
+</script>
+
+<div id="panel">
+  <table class="table" >
+  <% @emails.each do |email| %>
+    <tr>
+      <td>
+      <strong><%= link_to "#{email.subject[0..20]+"..."}",email %></strong>
+      <br />
+      <em style="color: #B0B0B0;"><%= email.content[0..25] + "..." %></em></td>
+      <!--<td><%= link_to 'Edit', edit_email_path(email) %></td>
+      <td><%= link_to 'Destroy', email, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+    </tr>
+  <% end %>
+  </table>
+</div>
+<br />
+
+<%#= link_to 'New Email', new_email_path %>
